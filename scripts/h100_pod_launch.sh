@@ -49,7 +49,7 @@ if [[ "$PHASE" == "setup" ]]; then
     set -euo pipefail
     cd '${RP_REPO}'
     pip install -r requirements.txt -q
-    python3 -c \"from flash_attn_interface import flash_attn_func; print('FLASH_ATTN_OK')\"
+    python3 -c "import flash_attn; print('FLASH_ATTN_OK', flash_attn.__version__)"
   "
 
   echo "=== PHASE 3: Download training data (fineweb10B_sp8192, ~15-30 min) ==="
@@ -74,7 +74,7 @@ if [[ "$PHASE" == "run" ]]; then
 
     # Quick sanity check before launching
     python3 -c \"
-from flash_attn_interface import flash_attn_func
+import flash_attn; print('flash_attn', flash_attn.__version__)
 import torch; print('torch', torch.__version__, 'GPUs:', torch.cuda.device_count())
 import ast; ast.parse(open('train_gpt_sota_decoded.py').read()); print('SYNTAX_OK')
 \"
