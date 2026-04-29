@@ -5,8 +5,8 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
-HGV_HOST="${HGV_HOST:-192.168.179.163}"
-HGV_USER="${HGV_USER:-hgv}"
+HGV_HOST="${HGV_HOST:?Set HGV_HOST to the analysis server IP or hostname}"
+HGV_USER="${HGV_USER:?Set HGV_USER to the remote username}"
 HGV_PASS="${HGV_PASS:-}"
 INTERVAL_SECS="${INTERVAL_SECS:-300}"
 MAX_RETRIES="${MAX_RETRIES:-3}"

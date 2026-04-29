@@ -7,7 +7,7 @@
 #   3. graph_probe.py summary across all logs
 #
 # Safe to arm while other machines (AGX, Nano) are still training — this only
-# polls the local spark-4987 machine for train_gpt_* processes. It will NOT
+# polls the local machine for train_gpt_* processes. It will NOT
 # interrupt them.
 #
 # Armed via:

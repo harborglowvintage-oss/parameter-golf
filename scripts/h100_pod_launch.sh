@@ -5,7 +5,7 @@
 #
 # Usage:
 #   export RP_HOST="<pod-ssh-address>"  # e.g. abc123-64412170@ssh.runpod.io
-#   export RP_KEY="$HOME/.ssh/id_ed25519_squid"
+#   export RP_KEY="/path/to/your/ssh_private_key"
 #   bash scripts/h100_pod_launch.sh [setup|run|status|logs]
 #
 # Phases:
@@ -17,7 +17,7 @@
 set -euo pipefail
 
 RP_HOST="${RP_HOST:?Set RP_HOST to the pod SSH address}"
-RP_KEY="${RP_KEY:-$HOME/.ssh/id_ed25519_squid}"
+RP_KEY="${RP_KEY:?Set RP_KEY to your SSH private key path (e.g. ~/.ssh/id_ed25519)}"
 RP_USER="${RP_HOST%%@*}"
 RP_REPO="/workspace/parameter-golf-main"
 FORK_URL="https://github.com/harborglowvintage-oss/parameter-golf.git"

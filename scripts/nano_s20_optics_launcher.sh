@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/ghostmini
+cd "${NANO_ROOT:-$HOME}"
 mkdir -p logs/sweep
 
 # Single-instance guard

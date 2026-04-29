@@ -1,5 +1,5 @@
 # Nano Sweep 01 v3 — Architecture probes (2026-04-20)
-# Jetson Orin Nano Super (ghostmini, 192.168.179.119)
+# Jetson Orin Nano Super
 # Base: locked config (QK=5.5, WD=0.64, TTT, sliding, EMA)
 # LOGIT_SOFTCAP=1000 on all rows — script default is 30 (OOM), 0 raises ValueError.
 # 1000 is mathematically near-identity (x*tanh(x/1000)≈x), effectively disabled.

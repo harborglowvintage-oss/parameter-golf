@@ -9,7 +9,7 @@ LOCKFILE="/tmp/$(basename "$0" .sh).lock"
 exec 9>"$LOCKFILE"
 flock -n 9 || { echo "[$(date)] $(basename "$0") already running (lock=$LOCKFILE); exiting pid=$$" >&2; exit 0; }
 
-cd /home/ghostmini
+cd "${NANO_ROOT:-$HOME}"
 LOG=logs/nano_s15_wd_scan_launcher.log
 SWEEP=scripts/sweeps/nano_s15_wd_scan.tsv
 mkdir -p logs

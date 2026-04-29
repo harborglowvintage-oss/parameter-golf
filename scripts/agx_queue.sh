@@ -8,8 +8,8 @@
 set +e
 
 REMOTE_PID="${1:?remote pid required}"
-HOST="ghost@192.168.179.191"
-KEY="$HOME/.ssh/id_ed25519_agx"
+HOST="${AGX_HOST:?Set AGX_HOST to user@host}"
+KEY="${AGX_KEY:?Set AGX_KEY to the SSH private key path}"
 
 log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $*"; }
 

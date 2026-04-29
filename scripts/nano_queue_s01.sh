@@ -13,10 +13,10 @@ cd "$REPO_ROOT"
 
 log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $*"; }
 
-NANO_USER=ghostmini
-NANO_HOST=192.168.179.119
-NANO_KEY=~/.ssh/id_ed25519_nano
-NANO_ROOT=/home/ghostmini
+NANO_USER="${NANO_USER:?Set NANO_USER to the remote username}"
+NANO_HOST="${NANO_HOST:?Set NANO_HOST to the remote IP or hostname}"
+NANO_KEY="${NANO_KEY:?Set NANO_KEY to the SSH private key path}"
+NANO_ROOT="${NANO_ROOT:-/home/${NANO_USER}}"
 DATA_DIR=$NANO_ROOT/data
 EXPECTED_SHARDS=101
 
@@ -64,4 +64,4 @@ ssh -i "$NANO_KEY" "$NANO_USER@$NANO_HOST" "
 "
 
 log "=== nano_queue_s01 handed off to Nano — monitor via:"
-log "    ssh ghostmini 'tail -f $NANO_ROOT/logs/sweep/orchestrator_nano_s01.log'"
+log "    ssh \"$NANO_USER@$NANO_HOST\" 'tail -f $NANO_ROOT/logs/sweep/orchestrator_nano_s01.log'"

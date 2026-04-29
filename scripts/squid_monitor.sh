@@ -8,7 +8,7 @@
 set -u
 
 HOST_ALIAS="${1:-${REMOTE_HOST_ALIAS:-squid}}"
-KEY_PATH="${REMOTE_SSH_KEY:-$HOME/.ssh/id_ed25519_squid}"
+KEY_PATH="${REMOTE_SSH_KEY:?Set REMOTE_SSH_KEY to the SSH private key path}"
 CONNECT_TIMEOUT="${REMOTE_CONNECT_TIMEOUT:-5}"
 REPO_DIR="${REMOTE_REPO_DIR:-~/parameter-golf-main}"
 PROC_REGEX="${REMOTE_PROC_REGEX:-sweep_runner.sh|run_experiment.sh|train_gpt_sota_decoded.py}"
