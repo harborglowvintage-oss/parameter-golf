@@ -213,8 +213,9 @@ export NPROC_PER_NODE="${NPROC_PER_NODE:-1}"
 export TORCHDYNAMO_DISABLE="${TORCHDYNAMO_DISABLE:-1}"
 export TORCH_COMPILE_DISABLE="${TORCH_COMPILE_DISABLE:-1}"
 # NCCL fixes for H100 SXM on RunPod containers (NCCL 2.20+):
-# NVLS (NVLink SHARP) causes cuda error 1 'invalid argument' in containers.
+# cuMemCreate API (CUMEM) and NVLS cause cuda error 1 in restricted containers.
 export NCCL_NVLS_ENABLE="${NCCL_NVLS_ENABLE:-0}"
+export NCCL_CUMEM_ENABLE="${NCCL_CUMEM_ENABLE:-0}"
 export NCCL_P2P_DISABLE="${NCCL_P2P_DISABLE:-0}"
 export NCCL_IB_DISABLE="${NCCL_IB_DISABLE:-0}"
 export NCCL_NET_GDR_LEVEL="${NCCL_NET_GDR_LEVEL:-0}"
